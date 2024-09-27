@@ -20,6 +20,11 @@ public class Main {
                     int answer2 = SumOfSeries(sc);
                     System.out.println("Знакочередующаяся сумма ряда: " + answer2);
                     break;
+                case 3:
+                    System.out.println("Укажите координаты клада: ");
+                    int answer3 = Treasure(sc);
+                    System.out.println("Минимальное число указаний: " + answer3);
+                    break;
                 default:
                     System.out.println("Неверный номер задачи.");
             }
@@ -55,5 +60,40 @@ public class Main {
             }
         }
         return sum;
+    }
+    public static int Treasure(Scanner sc) {
+        int X = sc.nextInt();
+        int Y = sc.nextInt();
+        int x = 0;
+        int y = 0;
+        int steps = 0;
+        int minSteps = Integer.MAX_VALUE;
+        System.out.println("Укажите направление и количество шагов или стоп: ");
+        while (true) {
+            String direction = sc.next();
+            if (direction.equals("стоп")) {
+                break;
+            }
+            int distance = sc.nextInt();
+            switch (direction) {
+                case "север":
+                    y += distance;
+                    break;
+                case "юг":
+                    y -= distance;
+                    break;
+                case "запад":
+                    x -= distance;
+                    break;
+                case "восток":
+                    x += distance;
+                    break;
+            }
+            steps++;
+            if (x == X && y == Y) {
+                minSteps = Math.min(minSteps, steps);
+            }
+        }
+        return minSteps;
     }
 }
