@@ -30,13 +30,18 @@ public class Main {
                     int numOfRoads = sc.nextInt();
                     System.out.println("Подходящая дорога и максимальная высота :" + Logistics(sc, numOfRoads));
                     break;
+                case 5:
+                    System.out.println("Введите  положительное трёхзначное число: ");
+                    boolean answer5 = doubleEven(sc);
+                    System.out.println("Ответ: " + answer5);
+                    break;
                 default:
                     System.out.println("Неверный номер задачи.");
             }
         }
     }
 
-    public static int Syracuse(Scanner sc) {
+    public static int Syracuse(Scanner sc) { // 1. Сиракузская последовательность
         int num = sc.nextInt();
         int steps = 0;
         while (num != 1) {
@@ -51,7 +56,7 @@ public class Main {
         return steps;
     }
 
-    public static int SumOfSeries(Scanner sc) {
+    public static int SumOfSeries(Scanner sc) { // 2. Сумма ряда
         int num = sc.nextInt();
         int sum = 0;
         System.out.println("Введите числа: ");
@@ -67,7 +72,7 @@ public class Main {
         return sum;
     }
 
-    public static int Treasure(Scanner sc) {
+    public static int Treasure(Scanner sc) { // 3. Ищем клад
         int X = sc.nextInt();
         int Y = sc.nextInt();
         int x = 0;
@@ -103,7 +108,7 @@ public class Main {
         return minSteps;
     }
 
-    public static String Logistics(Scanner sc, int numOfRoads) {
+    public static String Logistics(Scanner sc, int numOfRoads) { // 4. Логистический максимин
         int bestRoad = 1;
         int maxHeight = 0;
         for (int i = 1; i <= numOfRoads; i++) {
@@ -123,5 +128,18 @@ public class Main {
             }
         }
         return bestRoad + "-" + maxHeight;
+    }
+
+    public static boolean doubleEven(Scanner sc) { // 5. Дважды четное число
+        int num = sc.nextInt();
+        int sum = 0;
+        int prod = 1;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            prod *= 10;
+            num /= 10;
+        }
+        return (sum % 2 == 0 && prod % 2 == 0);
     }
 }
