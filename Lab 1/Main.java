@@ -25,6 +25,11 @@ public class Main {
                     int answer3 = Treasure(sc);
                     System.out.println("Минимальное число указаний: " + answer3);
                     break;
+                case 4:
+                    System.out.println("Введите количество дорог: ");
+                    int numOfRoads = sc.nextInt();
+                    System.out.println("Подходящая дорога и максимальная высота :" + Logistics(sc, numOfRoads));
+                    break;
                 default:
                     System.out.println("Неверный номер задачи.");
             }
@@ -61,6 +66,7 @@ public class Main {
         }
         return sum;
     }
+
     public static int Treasure(Scanner sc) {
         int X = sc.nextInt();
         int Y = sc.nextInt();
@@ -95,5 +101,27 @@ public class Main {
             }
         }
         return minSteps;
+    }
+
+    public static String Logistics(Scanner sc, int numOfRoads) {
+        int bestRoad = 1;
+        int maxHeight = 0;
+        for (int i = 1; i <= numOfRoads; i++) {
+            System.out.println("Введите количество тоннелей на дороге " + i);
+            int numOfTunnels = sc.nextInt();
+            int minTunnelHeight = Integer.MAX_VALUE;
+            for (int j = 1; j <= numOfTunnels; j++) {
+                System.out.println("Введите высоту тоннеля " + j);
+                int height = sc.nextInt();
+                if (height < minTunnelHeight) {
+                    minTunnelHeight = height;
+                }
+            }
+            if (minTunnelHeight > maxHeight) {
+                maxHeight = minTunnelHeight;
+                bestRoad = i;
+            }
+        }
+        return bestRoad + "-" + maxHeight;
     }
 }
