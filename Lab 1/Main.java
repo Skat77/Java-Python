@@ -137,7 +137,7 @@ public class Main {
         while (num > 0) {
             int digit = num % 10;
             sum += digit;
-            prod *= 10;
+            prod *= digit;
             num /= 10;
         }
         return (sum % 2 == 0 && prod % 2 == 0);
