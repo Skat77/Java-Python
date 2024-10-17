@@ -66,6 +66,19 @@ public class Main {
         return answer;
     }
 
+    //Task 4
+    public static int[][] RotateRight(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] newMatrix = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                newMatrix[j][rows- i - 1] = matrix[i][j];
+            }
+        }
+        return newMatrix;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -79,5 +92,17 @@ public class Main {
         //Task 3
         int[] array3 = {3, -2, -5, 1, 7, -2, 15, 23, 4, -17, 2};
         System.out.println("Task 3: " + MaxSum(array3));
+
+        //Task 4
+        int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        int[][] newMatrix = RotateRight(matrix);
+        System.out.println("Task 4: ");
+        for (int[] row : newMatrix) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }
