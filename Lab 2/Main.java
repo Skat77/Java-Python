@@ -55,6 +55,17 @@ public class Main {
         return arr3;
     }
 
+    //Task 3
+    public static int MaxSum(int[] array) {
+        int answer = array[0];
+        int currentSum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            currentSum = Math.max(currentSum + array[i], array[i]);
+            answer = Math.max(answer, currentSum);
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -64,5 +75,9 @@ public class Main {
         int[] array1 = {2, 6, 10, 16, 25, 76, 107};
         int[] array2 = {1, 7, 8, 43, 54, 77};
         System.out.println("Task 2: " + Arrays.toString(ArrayMerge(array1, array2)));
+
+        //Task 3
+        int[] array3 = {3, -2, -5, 1, 7, -2, 15, 23, 4, -17, 2};
+        System.out.println("Task 3: " + MaxSum(array3));
     }
 }
