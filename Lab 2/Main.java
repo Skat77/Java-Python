@@ -91,6 +91,17 @@ public class Main {
         return null;
     }
 
+    //Task 6
+    public static int SumOfMatrix(int[][] matrix) {
+        int sum = 0;
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                sum += matrix[row][col];
+            }
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -127,5 +138,8 @@ public class Main {
         else {
             System.out.println("Task 5: not found");
         }
+
+        //Task 6
+        System.out.println("Task 6: " + SumOfMatrix(matrix));
     }
 }
