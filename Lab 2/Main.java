@@ -102,6 +102,23 @@ public class Main {
         return sum;
     }
 
+    //Task 7
+    public static int[] MaxInRows(int[][] matrix) {
+        int[] maxInRows = new int[matrix.length];
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                int max = Integer.MIN_VALUE;
+                for (int num = 0; num < matrix[row].length; num++) {
+                    if (matrix[row][num] > max) {
+                        max = matrix[row][num];
+                    }
+                }
+                maxInRows[row] = max;
+            }
+        }
+        return maxInRows;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -141,5 +158,13 @@ public class Main {
 
         //Task 6
         System.out.println("Task 6: " + SumOfMatrix(matrix));
+
+        //Task 7
+        int[][] maxMatrix = {
+                {1, 6, 4},
+                {7, 2, 5},
+                {3, 8, 9}
+        };
+        System.out.println("Task 7: " + Arrays.toString(MaxInRows(maxMatrix)));
     }
 }
