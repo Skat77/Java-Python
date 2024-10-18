@@ -119,6 +119,19 @@ public class Main {
         return maxInRows;
     }
 
+    //Task 8
+    public static int[][] RotateLeft(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] newMatrix = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                newMatrix[cols - j -1][i] = matrix[i][j];
+            }
+        }
+        return newMatrix;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -166,5 +179,12 @@ public class Main {
                 {3, 8, 9}
         };
         System.out.println("Task 7: " + Arrays.toString(MaxInRows(maxMatrix)));
+
+        //Task 8
+        int[][] matrixLeft = RotateLeft(matrix);
+        System.out.println("Task 8: ");
+        for (int[] row : matrixLeft) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 }
