@@ -79,6 +79,18 @@ public class Main {
         return newMatrix;
     }
 
+    //Task 5
+    public static int[] FindTargetSum(int[] array, int target) {
+        for (int first = 0; first < array.length; first++) {
+            for (int second = first + 1; second < array.length; second++) {
+                if (array[first] + array[second] == target) {
+                    return new int[]{array[first], array[second]};
+                }
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         //Task 1
         String str = "Good afternoon";
@@ -103,6 +115,17 @@ public class Main {
         System.out.println("Task 4: ");
         for (int[] row : newMatrix) {
             System.out.println(Arrays.toString(row));
+        }
+
+        //Task 5
+        int[] findTarget = {1, 5, 9, 6, -1, 3, 15};
+        int target = 16;
+        int[] targetPair = FindTargetSum(findTarget, target);
+        if (targetPair != null) {
+            System.out.println("Task 5: " + Arrays.toString(targetPair));
+        }
+        else {
+            System.out.println("Task 5: not found");
         }
     }
 }
